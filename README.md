@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# EcoTrack
 
-## Getting Started
+MVP para registrar huella de carbono (kg CO₂e) con **lenguaje natural**. Next.js 14 (App Router), TypeScript, Tailwind, shadcn/ui, Zustand. La IA (OpenAI) es opcional: sin API key usa un parser heurístico.
 
-First, run the development server:
+## Arranque local
 
 ```bash
+npm install
+copy .env.example .env   # Windows
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abre [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Variables de entorno
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Variable | Uso |
+| --- | --- |
+| `OPENAI_API_KEY` | Si está definida, `/api/parse` usa GPT. Si no, heurística local. |
+| `OPENAI_MODEL` | Por defecto `gpt-4o-mini` |
+| `PORT` | Puerto (Replit lo inyecta) |
 
-## Learn More
+Nunca subas `.env` con secretos. En Replit usa **Secrets**.
 
-To learn more about Next.js, take a look at the following resources:
+## Scripts
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `npm run dev` — desarrollo en `0.0.0.0` (compatible Replit)
+- `npm run build` / `npm start` — producción
+- `npm test` — Jest + React Testing Library
+- `npm run deploy:prep` — copia `.env.example` si falta, instala y hace build (`scripts/deploy.sh` o `scripts/deploy.ps1`)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Replit (sin config extra)
 
-## Deploy on Vercel
+1. Importa esta carpeta / repo en Replit.
+2. Run usa `.replit` (`npm run dev`). Deploy usa `build` + `npm start`.
+3. (Opcional) Secrets → `OPENAI_API_KEY`.
+4. La URL pública es la que Replit muestra al Run/Deploy (`*.replit.dev`).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+No se puede generar esa URL desde esta máquina: hace falta tu cuenta Replit.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Estructura
+
+```
+src/app          # rutas + API
+src/components   # UI (incl. shadcn)
+src/lib          # store, factores, parser
+src/hooks
+src/types
+src/utils
+```
+
+Las reglas del agente están en `.cursorrules` y `.cursor/rules/ecotrack.mdc`.
+
+## Aviso
+
+Las estimaciones son educativas, no un inventario certificado (ISO/GHG Protocol).

@@ -1,0 +1,13 @@
+---
+description: EcoTrack stack, folder layout, NLP fallback, and Replit deploy conventions
+alwaysApply: true
+---
+
+# EcoTrack
+
+- Next.js 14 App Router + TypeScript under `src/`
+- Tailwind + shadcn/ui; Zustand persist for entries
+- Parse NL via `/api/parse` (OpenAI or heuristic). Never block logging if the LLM is down.
+- Jest + RTL for components/utils
+- Spanish UI; English code
+- Replit: `.replit`, `replit.nix`, no extra setup; secrets via env

@@ -1,0 +1,31 @@
+# EcoTrack — Project Agent Rules
+
+## Stack (do not change without explicit request)
+- Framework: Next.js 14 App Router + TypeScript (`src/app`)
+- UI: Tailwind CSS + shadcn/ui (Radix). Prefer existing UI primitives over custom CSS.
+- State: Zustand (`src/lib/store.ts`) with persist for entries
+- NLP: `src/app/api/parse/route.ts` — OpenAI when `OPENAI_API_KEY` is set, else heuristic fallback
+- Tests: Jest + React Testing Library (`npm test`)
+- Folder layout:
+  - `src/app` routes and API
+  - `src/components` UI
+  - `src/lib` store, parsers, emission factors
+  - `src/hooks` client hooks
+  - `src/types` shared types
+  - `src/utils` helpers
+
+## Vibe / development
+- Do not narrate every line of code. Ship working features.
+- On errors: propose a concrete fix immediately and apply it.
+- Functionality over perfection. Keep modules small and reusable.
+- Mobile-first, accessible (labels, contrast, keyboard).
+- Soft micro-interactions (CSS transitions / Tailwind animate). Lazy-load heavy UI.
+- Spanish UI copy (product is ES-first); keep code and comments in English.
+
+## Product
+EcoTrack MVP: log carbon footprint from natural language. Parse activity → kg CO2e → dashboard + history.
+
+## Deploy (Replit)
+- App must start with `npm run dev` / `npm start` using `.replit`.
+- Never commit secrets. Use `.env.example` + Replit Secrets.
+- `scripts/deploy.sh` prepares env and production build.

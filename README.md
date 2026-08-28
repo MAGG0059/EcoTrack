@@ -54,3 +54,9 @@ Las reglas del agente están en `.cursorrules` y `.cursor/rules/ecotrack.mdc`.
 ## Aviso
 
 Las estimaciones son educativas, no un inventario certificado (ISO/GHG Protocol).
+
+
+## Screenshot
+
+<img width="988" height="671" alt="image" src="https://github.com/user-attachments/assets/fd710713-cc6f-4196-bde2-3bdb266e3409" />
+

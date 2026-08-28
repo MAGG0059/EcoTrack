@@ -60,3 +60,10 @@ Las estimaciones son educativas, no un inventario certificado (ISO/GHG Protocol)
 
 <img width="988" height="671" alt="image" src="https://github.com/user-attachments/assets/fd710713-cc6f-4196-bde2-3bdb266e3409" />
 
+
+
+## Working at the same time than replit
+
+<img width="1350" height="677" alt="image" src="https://github.com/user-attachments/assets/9547ee8e-2b08-4bf3-a9f4-5df560661288" />
+
+
